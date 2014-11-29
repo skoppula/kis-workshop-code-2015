@@ -1,4 +1,4 @@
-#Code Snippets for J & S's EECS Workshop at KIS
+#J & S's EECS Workshop @ KIS
 
 You'll find code to:
 
