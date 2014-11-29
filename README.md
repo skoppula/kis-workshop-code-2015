@@ -1,6 +1,6 @@
-#J & S's EECS Workshop @ KIS
+##J & S's EECS Workshop @ KIS
 
-You'll find code to:
+You'll find code snippets to:
 
 	* Make an Arduino bot follow a line
 	* Control movement of an Arduino using a smartphone
