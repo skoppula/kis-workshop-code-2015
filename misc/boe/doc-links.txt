@@ -1,0 +1,2 @@
+http://learn.parallax.com/BOEShield
+http://learn.parallax.com/ShieldRobot
