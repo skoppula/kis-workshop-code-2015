@@ -1,4 +1,5 @@
-Rremote Library - Copyright 2009 Ken Shirriff
+/*
+* Remote Library - Copyright 2009 Ken Shirriff
 * created by Rui Santos, http://randomnerdtutorials.wordpress.com
 * Control LED's with a remote control
 * 2013
