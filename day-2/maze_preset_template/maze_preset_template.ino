@@ -13,52 +13,52 @@ Servo servoLeft;                            // Declare left servo
 //for writeMicroseconds(): sets an internal speed setting on the motor
 //0-1500, 0 is fully counter-clockwise; 1500-2500, 2500 is fully clockwise
 
-int counterClockwiseValue = 1300;
-int clockwiseValue = 1700;
-int stopValue = 1500;
-int dimeTurnTime = 700;
-int turnTime = 1000; //MAY BE WRONG!
+const int counterClockwiseValue = 1300;
+const int clockwiseValue = 1700;
+const int stopValue = 1500;
+const int rightAngleDimeTurnTime = 700;
+const int rightAngleTurnTime = 1000; //MAY BE WRONG!
 
-void turnDimeRight() {
+void stopMovement(const int time) {
+    servoRight.writeMicroseconds(stopValue);
+    servoLeft.writeMicroseconds(stopValue);
+    delay(time);
+}
+
+void turnDimeRight(const int time) {
   	servoRight.writeMicroseconds(clockwiseValue);
   	servoLeft.writeMicroseconds(clockwiseValue);
-  	delay(dimeTurnTime);
+  	delay(time);
 }
 
-void stopMovement(int time) {
-        servoRight.writeMicroseconds(stopValue);
-        servoLeft.writeMicroseconds(stopValue);
-        delay(time);
-}
-
-void turnDimeLeft() {
+void turnDimeLeft(const int time) {
   	servoRight.writeMicroseconds(counterClockwiseValue);
   	servoLeft.writeMicroseconds(counterClockwiseValue);
-	delay(dimeTurnTime);
+	delay(time);
 }
 
-void turnLeft() {
-        servoLeft.writeMicroseconds(stopValue);
+void turnLeft(const int time) {
+    servoLeft.writeMicroseconds(stopValue);
   	servoRight.writeMicroseconds(clockwiseValue);
-	delay(turnTime);
+	delay(time);
 }
 
-void turnRight() {
+void turnRight(const int time) {
   	servoLeft.writeMicroseconds(counterClockwiseValue);
   	servoRight.writeMicroseconds(stopValue);
-	delay(turnTime);
+	delay(time);
 }
 
-void moveBackward(int time) {
+void moveBackward(const int time) {
 	delay(time);
   	servoRight.writeMicroseconds(clockwiseValue);
   	servoLeft.writeMicroseconds(counterClockwiseValue);
 }
 
-void moveForward(int time) {
-	delay(time);
+void moveForward(const int time) {
   	servoRight.writeMicroseconds(counterClockwiseValue);
   	servoLeft.writeMicroseconds(clockwiseValue);
+	delay(time);
 }
 
 void setup() {
@@ -70,10 +70,8 @@ void setup() {
 void loop() {                                            
 	//moveForward(1000);
 	//moveBackward(1000);
-	//turnDimeRight();
-	//turnLeft();
-	//turnRight();
-        //turnDimeRight();
-        //stopMovement(1000);
+	//turnDimeRight(rightAngleDimeTurnTime);
+	//turnDimeLeft(rightAngleDimeTurnTime);
+    //stopMovement(1000);
 }
 

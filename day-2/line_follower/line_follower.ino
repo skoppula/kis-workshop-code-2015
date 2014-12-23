@@ -1,25 +1,71 @@
 /*
- * Robotics with the BOE Shield - PhototransistorVoltage
- * Display voltage of phototransistor circuit output connected to A3 in
- * the serial monitor.
+ * Line Follower with Two Sensors on Either Side of Line
+ * 
+ * analogRead Documentation: http://arduino.cc/en/Reference/AnalogRead
+ * (c) Skanda Koppula and Juan Castrillo
  */
 
-void setup()                                 // Built-in initialization block
-{
-  Serial.begin(9600);                        // Set data rate to 9600 bps
+#include <Servo.h>                          
+ 
+Servo servoRight;                           
+Servo servoLeft;                            
+const float darkThreshold = 0.001;
+
+const int counterClockwiseValue = 1300;
+const int clockwiseValue = 1700;
+const int stopValue = 1500;
+
+const int leftSensor = A3;
+const int rightSensor = A4;
+
+int timeDelta = 300;
+
+void stopMovement(const int time) {
+    servoRight.writeMicroseconds(stopValue);
+    servoLeft.writeMicroseconds(stopValue);
+    delay(time);
 }
 
-void loop()                                  // Main loop auto-repeats
-{
-  Serial.print("A3 A4 ");                     // Display "A3 = "
-  Serial.print(volts(A3));
-  Serial.print(" ");
-  Serial.print(volts(A4));   // Display measured A3 volts
-  Serial.println(" volts");                  // Display " volts" & newline
-  delay(500);                               // Delay for 1 second
+void turnDimeRight(const int time) {
+  	servoRight.writeMicroseconds(clockwiseValue);
+  	servoLeft.writeMicroseconds(clockwiseValue);
+  	delay(time);
+}
+
+void turnDimeLeft(const int time) {
+  	servoRight.writeMicroseconds(counterClockwiseValue);
+  	servoLeft.writeMicroseconds(counterClockwiseValue);
+	delay(time);
+}
+
+void moveForward(const int time) {
+  	servoRight.writeMicroseconds(counterClockwiseValue);
+  	servoLeft.writeMicroseconds(clockwiseValue);
+	delay(time);
+}
+
+void setup() {
+	Serial.begin(9600);                       // Set data rate to 9600 bps
+}
+
+void loop() {
+
+	Serial.print(volts(A3));
+	Serial.print(" ");
+  	Serial.println(volts(A4));
+
+	if(volts(leftSensor) > darkThreshold && volts(rightSensor) > darkThreshold) {
+		//Both sensors read white: robot is straight along the line
+		moveForward(timeDelta);
+	} else if(volts(leftSensor) <= darkThreshold) {
+		//Left sensor reads dark; need to turn left
+		turnDimeLeft(timeDelta);
+	} else if(volts(rightSensor) <= darkThreshold) {
+		//Right sensor reads dark; turn right
+		turnDimeRight(timeDelta);
+	}
 }
                                              
-float volts(int adPin)                       // Measures volts at adPin
-{                                            // Returns floating point voltage
- return float(analogRead(adPin)) * 5.0 / 1024.0;
+float volts(int pin) {
+	return float(analogRead(pin)) * 5.0 / 1024.0;
 }
