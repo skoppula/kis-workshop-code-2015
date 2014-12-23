@@ -9,6 +9,7 @@
  
 Servo servoRight;                           
 Servo servoLeft;                            
+
 const float darkThreshold = 0.001;
 
 const int counterClockwiseValue = 1300;
@@ -19,30 +20,6 @@ const int leftSensor = A3;
 const int rightSensor = A4;
 
 int timeDelta = 300;
-
-void stopMovement(const int time) {
-    servoRight.writeMicroseconds(stopValue);
-    servoLeft.writeMicroseconds(stopValue);
-    delay(time);
-}
-
-void turnDimeRight(const int time) {
-  	servoRight.writeMicroseconds(clockwiseValue);
-  	servoLeft.writeMicroseconds(clockwiseValue);
-  	delay(time);
-}
-
-void turnDimeLeft(const int time) {
-  	servoRight.writeMicroseconds(counterClockwiseValue);
-  	servoLeft.writeMicroseconds(counterClockwiseValue);
-	delay(time);
-}
-
-void moveForward(const int time) {
-  	servoRight.writeMicroseconds(counterClockwiseValue);
-  	servoLeft.writeMicroseconds(clockwiseValue);
-	delay(time);
-}
 
 void setup() {
 	Serial.begin(9600);                       // Set data rate to 9600 bps
@@ -56,13 +33,13 @@ void loop() {
 
 	if(volts(leftSensor) > darkThreshold && volts(rightSensor) > darkThreshold) {
 		//Both sensors read white: robot is straight along the line
-		moveForward(timeDelta);
+		moveForward(servoRight, servoLeft, timeDelta);
 	} else if(volts(leftSensor) <= darkThreshold) {
 		//Left sensor reads dark; need to turn left
-		turnDimeLeft(timeDelta);
+		turnDimeLeft(servoRight, servoLeft, timeDelta);
 	} else if(volts(rightSensor) <= darkThreshold) {
 		//Right sensor reads dark; turn right
-		turnDimeRight(timeDelta);
+		turnDimeRight(servoRight, servoLeft, timeDelta);
 	}
 }
                                              
