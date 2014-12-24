@@ -45,13 +45,13 @@ void turnRight(Servo servoRight, Servo servoLeft, const int time) {
 	delay(time);
 }
 
-void moveBackward(Servo servoRight, Servo servoLeft, const int time) {
-	delay(time);
+void moveForward(Servo servoRight, Servo servoLeft, const int time) {
   	servoRight.writeMicroseconds(clockwiseValue);
   	servoLeft.writeMicroseconds(counterClockwiseValue);
+	delay(time);
 }
 
-void moveForward(Servo servoRight, Servo servoLeft, const int time) {
+void moveBackward(Servo servoRight, Servo servoLeft, const int time) {
   	servoRight.writeMicroseconds(counterClockwiseValue);
   	servoLeft.writeMicroseconds(clockwiseValue);
 	delay(time);

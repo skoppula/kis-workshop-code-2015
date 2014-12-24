@@ -23,6 +23,6 @@ void loop() {
 	//moveBackward(servoRight, servoLeft, 1000);
 	//turnDimeRight(servoRight, servoLeft, rightAngleDimeTurnTime);
 	//turnDimeLeft(servoRight, servoLeft, rightAngleDimeTurnTime);
-    //stopMovement(servoRight, servoLeft, 1000);
+	//stopMovement(servoRight, servoLeft, 1000);
 }
 
