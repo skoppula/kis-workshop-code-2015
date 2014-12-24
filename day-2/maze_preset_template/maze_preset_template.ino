@@ -14,8 +14,8 @@ const int rightAngleDimeTurnTime = 700;
 const int rightAngleTurnTime = 1000; //MAY BE WRONG!
 
 void setup() {
-	servoRight.attach(12);                     // Attach left signal to pin 12
-	servoLeft.attach(13);                     // Attach left signal to pin 12
+	servoRight.attach(12);                    // Attach right signal to pin 12
+	servoLeft.attach(13);                     // Attach left signal to pin 13
 }  
  
 void loop() {                                            
