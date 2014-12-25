@@ -1,5 +1,7 @@
 /*
 * Solves a maze autonomously using three ultrasonic sensors
+* Assumes maze is one piece and uses the algorithm of
+* following the left wall.
 *
 * (c) Juan Castrillo and Skanda Koppula 2014
 */
