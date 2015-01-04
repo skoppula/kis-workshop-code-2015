@@ -49,12 +49,6 @@ print "The Minions got", firstTime, "bananas through the machine the first time"
 secondTime = moreBananas(firstTime, 17)
 print "The Minions got", secondTime, "bananas throught the machine the second time"
 
-## teach while loop
-count = 1
-while count <= 10:
-    print count
-    count = count + 1
-
 ## teach loops
 def countToTen():    
     count = 1

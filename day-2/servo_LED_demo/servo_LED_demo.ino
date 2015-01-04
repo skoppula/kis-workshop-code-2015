@@ -4,11 +4,10 @@
 * Servo Documentation: http://arduino.cc/en/reference/servo
 * (c) Juan Castrillo and Skanda Koppula 2014
 * 
-* Changelog:
-*	Use movements library forward/backward/turnDimeLeft/turnDimeRight functions (takes in time)
-*	In movements library use writeMicroseconds for extra precision
-*	Use const
-*	Readability cleanup
+* Circuit:
+*    ServoRight -> pin 12
+*    ServoLeft -> pin 13
+*    3 LEDs -> pins 2,4,6
 */
 
 #include <Servo.h>                          // Include servo library
@@ -24,8 +23,8 @@ const int ledThree = 6;
 const int rightAngleDimeTurnTime = 700;
 
 void setup() {
-	servoRight.attach(12);                    // Attach right signal to pin 12
-	servoLeft.attach(13);                     // Attach left signal to pin 13
+    servoRight.attach(12);                    // Attach right signal to pin 12
+    servoLeft.attach(13);                     // Attach left signal to pin 13
     servoRight.write(90);
     servoLeft.write(90);
         
