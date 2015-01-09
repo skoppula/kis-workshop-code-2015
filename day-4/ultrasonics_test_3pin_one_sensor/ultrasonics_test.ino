@@ -13,7 +13,7 @@ void setup() {
 
 void loop() {
 
-	long duration = getUSReading(i);
+	long duration = getUSReading(pin);
 	long inch = microsecondsToInches(duration);
 	long cm = microsecondsToCentimeters(duration);
 	printUSReading(inch, cm);
