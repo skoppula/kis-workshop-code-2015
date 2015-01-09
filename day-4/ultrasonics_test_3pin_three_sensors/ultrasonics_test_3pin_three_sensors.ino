@@ -6,7 +6,7 @@
 */
 
 const int numUltrasonics = 3;
-const int pins[numUltrasonics] = {7,8,9};
+const int pins[numUltrasonics] = {2,4,6};
 
 void setup() {
 	Serial.begin(9600);
@@ -22,21 +22,15 @@ void loop() {
 		durations[i] = getUSReading(i);
 		inches[i] = microsecondsToInches(durations[i]);
 		cms[i] = microsecondsToCentimeters(durations[i]);
-		printUSReading(i, inches[i], cms[i]);
+		Serial.print("(");
+		Serial.print(inches[i]);
+		Serial.print("in,");
+		Serial.print(cms[i]);
+		Serial.print("cm) ");
 	}
+	Serial.println("");
 										  
 	delay(100);
-}
-
-void printUSReading(int sensor, int inches, int cm) {
-	Serial.print("sensor: ");
-	Serial.print(sensor);
-	Serial.print(" ");
-	Serial.print(inches);
-	Serial.print("in, ");
-	Serial.print(cm);
-	Serial.print("cm");
-	Serial.println();
 }
 
 long getUSReading(int ultrasoundNumber) {
