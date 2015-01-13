@@ -1,0 +1,18 @@
+Create a way to diagnose diseases
+---
+
+Blood testing...is it completely accurate?
+No! Dependent on the way we analyze numbers in the sample.
+
+Choose your disease you want to cure.
+Download a data set for that disease.
+
+Sanitize input.
+Try out chi-square
+Check accuracy.
+Accuracy is bad.
+
+Try better:
+- nearest neighbor
+- SVMs
+Hopefully accuracy is better

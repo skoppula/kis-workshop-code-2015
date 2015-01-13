@@ -1,0 +1,18 @@
+Introduce chi-square:
+	What is chi-square testing? M&M activity
+	Application to biology:
+		Determining linkage
+		Determining if gene expression profile matches
+			Is there a smarter way to do this?
+			Compare against all cancer patients in the world?
+			Doesn't actually give us insight into what genes are significant?
+
+Biology is high-throughput: lots of data about lots of genes
+We need a way to automate processing all this data.
+
+*three-part series on systems, quantitative, computational biology*
+
+1. feet wet: automatic Punnett square creation
+2. From pedigree guess what type of disease
+3. Chi-square testing for cancer
+

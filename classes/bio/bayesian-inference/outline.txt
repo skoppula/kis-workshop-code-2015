@@ -1,0 +1,16 @@
+What is Bayes' rule?
+	explanation
+	basic example
+
+Bayesian reasoning in pedigrees
+	Example/WS
+
+Naive Bayes Inference:
+	Spam filtering
+
+Classifying cell mitotic stage
+
+SNP determining phenotype
+	Demo and lab
+
+Bayes is godly
